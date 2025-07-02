@@ -12,7 +12,7 @@ from langchain.callbacks.manager import CallbackManagerForLLMRun
 
 #streamlit configuration code
 st.set_page_config(
-    page_title="HireJudge - Free LangChain Evaluation",
+    page_title="HireJudge - Candidate Evaluation",
     page_icon="🌐",
     layout="wide"
 )
@@ -31,7 +31,7 @@ class HuggingFaceLLM(LLM):
     
     @property
     def _llm_type(self) -> str:
-        return "huggingface_free"
+        return "huggingface"
     
     def _call(
         self,
@@ -40,7 +40,6 @@ class HuggingFaceLLM(LLM):
         run_manager: Optional[CallbackManagerForLLMRun] = None,
         **kwargs
     ) -> str:
-        """Call the Hugging Face API"""
         try:
             models_to_try = [
                 "microsoft/DialoGPT-medium",
@@ -131,11 +130,10 @@ FOLLOW-UP QUESTIONS:
 class CandidateEvaluator:
     
     def __init__(self):
-        self.setup_free_llm()
+        self.setup_llm()
         self.setup_prompt_template()
     
-    def setup_free_llm(self):
-        """Setup Hugging Face LLM"""
+    def setup_llm(self):
         try:
             self.llm = HuggingFaceLLM()
             self.llm_configured = True
@@ -283,7 +281,7 @@ def main():
                                 "Structured Evaluation:",
                                 value=evaluation,
                                 height=350,
-                                help="Generated using LangChain PromptTemplate + Free Hugging Face LLM"
+                                help="Generated using LangChain PromptTemplate"
                             )
                             col_dl, col_copy = st.columns(2)
                             
