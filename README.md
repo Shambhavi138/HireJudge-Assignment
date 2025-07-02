@@ -7,4 +7,5 @@ Given a candidate’s profile in JSON format, the app outputs:
 - A fit judgment for the applied role: Strong, Average, or Weak
 - Any gaps or concerns identified
 - Three suggested follow-up questions for the interview
-![hirejudge](https://github.com/user-attachments/assets/50e34f6b-76da-4c9b-b3ec-c615a7014776)
+
+![hirejudge2](https://github.com/user-attachments/assets/060f3368-101c-4b24-bad4-73ff45b86ac0)
